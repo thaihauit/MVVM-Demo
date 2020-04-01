@@ -1,24 +1,36 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
-# Pods for MVVMBase
 
 def networking
-  pod 'Alamofire'
-  pod 'SDWebImage', :modular_headers => true
+  pod 'Moya/RxSwift'
 end
 
-def dababase
-  pod 'RealmSwift', :modular_headers => true
-  pod 'Realm', :modular_headers => true
+def structure
+  pod 'RxRealm'
+  pod 'RxCocoa'
+  
 end
 
-def push
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Messaging'
+def di
+  pod 'Swinject'
+  pod 'SwinjectStoryboard'
 end
 
-target 'MVVMBase' do
-  networking
-  dababase
-  push
+
+target 'MVVM-Moya' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  
+  # Pods for MVVM-Moya
+
+  target 'MVVM-MoyaTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'MVVM-MoyaUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
 end
