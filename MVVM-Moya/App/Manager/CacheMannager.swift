@@ -23,9 +23,9 @@ class CacheManager: NSObject {
     private let userName = "user_name"
     
     // MARK:- Api token
-//    func getApiToken() -> Observable<String?> {
-//        return userDefaults.rx.observe(String.self, apiToken)
-//    }
+    func getApiToken1() -> Observable<String?> {
+        return userDefaults.rx.observe(String.self, apiToken)
+    }
     
     func getApiToken() -> String {
         return userDefaults.string(forKey: apiToken) ?? ""
@@ -40,9 +40,6 @@ class CacheManager: NSObject {
         userDefaults.removeObject(forKey: apiToken)
     }
     
-//    func getUserName() -> Observable<String?> {
-//        return userDefaults.rx.observe(String.self, apiToken)
-//    }
     
     func getUserName() -> String {
         return userDefaults.string(forKey: userName) ?? ""

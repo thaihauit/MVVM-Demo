@@ -735,13 +735,13 @@ extension UILabel {
 
 extension ObservableType {
     
-    public func catchErrorJustComplete() -> Observable<E> {
+    public func catchErrorJustComplete() -> Observable<Element> {
         return catchError { _ in
             return Observable.empty()
         }
     }
     
-    public func asDriverOnErrorJustComplete() -> Driver<E> {
+    public func asDriverOnErrorJustComplete() -> Driver<Element> {
         return asDriver { _ in
             return Driver.empty()
         }
@@ -751,11 +751,11 @@ extension ObservableType {
         return map { _ in }
     }
     
-    public func mapToOptional() -> Observable<E?> {
-        return map { value -> E? in value }
+    public func mapToOptional() -> Observable<Element?> {
+        return map { value -> Element? in value }
     }
     
-    public func unwrap<T>() -> Observable<T> where E == T? {
+    public func unwrap<T>() -> Observable<T> where Element == T? {
         return flatMap { Observable.from(optional: $0) }
     }
 }

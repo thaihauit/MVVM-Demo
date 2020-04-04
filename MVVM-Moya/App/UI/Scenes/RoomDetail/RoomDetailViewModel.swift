@@ -11,6 +11,14 @@ import Moya
 import RxSwift
 import RxCocoa
 
-class RoomDetailViewModel {
+struct RoomDetailViewModel {
+    let navigator: RoomDetailNavigatorType
+    let useCase: RoomDetailUseCaseType
     
 }
+
+extension RoomDetailViewModel {
+    
+}
+
+

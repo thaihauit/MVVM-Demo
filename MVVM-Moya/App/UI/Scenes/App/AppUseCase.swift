@@ -12,6 +12,7 @@ import RxSwift
 
 protocol AppUseCaseType {
     func isTokenValid(object: Driver<String>) -> Driver<Bool>
+    func isDeviceIdValid(object: Driver<String>) -> Driver<Bool>
 }
 
 struct AppUseCase: AppUseCaseType {
@@ -21,5 +22,10 @@ struct AppUseCase: AppUseCaseType {
         }
     }
     
+    func isDeviceIdValid(object: Driver<String>) -> Driver<Bool> {
+        return object.map { token in
+            token.count > 0
+        }
+    }
     
 }

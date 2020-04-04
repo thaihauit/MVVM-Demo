@@ -13,7 +13,9 @@ import RxCocoa
 
 struct RoomMainViewModel {
     
-    let useCase: RoomMainUseCase
+    let navigator: RoomMainNavigatorType
+    let useCase: RoomMainUseCaseType
+    
     let provider = LoginProvider()
     let disposeBag = DisposeBag()
     

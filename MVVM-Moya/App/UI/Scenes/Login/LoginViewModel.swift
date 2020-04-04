@@ -12,8 +12,9 @@ import RxSwift
 import RxCocoa
 
 struct LoginViewModel {
-    let navigator: LoginNavigator
-    let useCase: LoginUseCase
+    let navigator: LoginNavigatorType
+    let useCase: LoginUseCaseType
+    
     let loginProvider = LoginProvider()
     let roomProvider = RoomMainProvider()
     let disposeBag = DisposeBag()
@@ -63,7 +64,6 @@ extension LoginViewModel: ViewModelType {
         })
         
         let goRoomMainScreen = PublishSubject<Bool>()
-        
         let roomInfo = input.roomInfoTrigger.flatMap { (id) -> Driver<RoomInfo> in
             return self.roomProvider.getRoomInfo(id: id)
         }.do(onNext: { (roomInfo) in
@@ -71,8 +71,6 @@ extension LoginViewModel: ViewModelType {
                 goRoomMainScreen.onNext(true)
             }
         })
-        
-        
         
         return Output(isLoginEnable: isLoginEnable, isLoading: isLoading, userNameValidation: userNameValidation, login: login, goRoomMainScreen: goRoomMainScreen.asDriver(onErrorJustReturn: false), id: roomInfo)
     }

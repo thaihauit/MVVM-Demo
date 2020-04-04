@@ -20,7 +20,8 @@ end
 target 'MVVM-Moya' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  
+  networking
+  structure
   # Pods for MVVM-Moya
 
   target 'MVVM-MoyaTests' do

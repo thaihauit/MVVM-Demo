@@ -13,7 +13,9 @@ import RxCocoa
 
 struct AppViewModel {
     
-    let useCase: AppUseCase
+    let navigator: AppNavigatorType
+    let useCase: AppUseCaseType
+    
     let loginProvider = LoginProvider()
     let disposeBag = DisposeBag()
     
@@ -28,26 +30,26 @@ extension AppViewModel: ViewModelType {
     
     struct Output {
         let hasToken : Driver<Bool>
-        let generateTokenSuccess: Driver<Bool>
         let token : Driver<Token>
     }
     
     func transform(_ input: Input) -> Output {
-        let validToken = useCase.isTokenValid(object: input.tokenTrigger)
         
-        let generateTokenSuccess = BehaviorSubject<Bool>(value: false)
+        let isValidToken = useCase.isTokenValid(object: input.tokenTrigger)
+        let isValidDeviceId = useCase.isTokenValid(object: input.generateToken)
         
         let token = input.generateToken
             .flatMap({ (deviceId) -> Driver<Token> in
-                return self.loginProvider.createToken(id: deviceId)
-            }).do(onNext: { (token) in
+                return self.loginProvider.createToken(id: deviceId)})
+            .do(onNext: { (token) in
                 if !token.token.isEmpty {
                     CacheManager.shared.saveApiToken(value: token.token)
-                    generateTokenSuccess.onNext(true)
                 }
             })
         
-        return Output(hasToken: validToken, generateTokenSuccess: generateTokenSuccess.asDriverOnErrorJustComplete(), token: token)
+        
+        
+        return Output(hasToken: isValidToken, token: token)
     }
     
 }

@@ -11,7 +11,7 @@ import Moya
 import RxCocoa
 import RxSwift
 
-class LoginViewController: PrimaryViewController, ControllerType {
+class LoginViewController: SecondaryViewController, ControllerType {
     
     // MARK: - Properties
     var viewModel: LoginViewModel!
@@ -30,7 +30,7 @@ class LoginViewController: PrimaryViewController, ControllerType {
     
     func bindViewModel() {
         
-        let input = LoginViewModel.Input(currentlUser:Driver.just(CacheManager.shared.getUserName()),
+        let input = LoginViewModel.Input(currentlUser: Driver.just(CacheManager.shared.getUserName()),
                                          userName:userId.rx.text.orEmpty.asDriver(),
                                          loginDidTap: signInButton.rx.tap.asDriver(),
                                          roomInfoTrigger: roomId.asDriver(onErrorJustReturn: ""))
@@ -82,12 +82,12 @@ extension LoginViewController {
         }
     }
     
+    
+    
     var isCheckRoomId: Binder<Bool> {
         return Binder(self) { result, vc in
             if vc {
                 self.roomId.onNext(CacheManager.shared.getCurrentRoomId())
-            } else {
-                self.navigateToHistoryScreen()
             }
         }
     }
@@ -101,13 +101,11 @@ extension LoginViewController {
     }
     
     func navigateToRoomMainScreen() {
-        let controller = RoomMainViewController.create(with: RoomMainViewModel(useCase: RoomMainUseCase()))
-        self.navigationController?.pushViewController(controller, animated: true)
+        
     }
     
     func navigateToHistoryScreen() {
-        let controller = RoomHistoryViewController.create(with: RoomHistoryViewModel(useCase: RoomHistoryUseCase()))
-        self.navigationController?.pushViewController(controller, animated: true)
+        
     }
     
 }

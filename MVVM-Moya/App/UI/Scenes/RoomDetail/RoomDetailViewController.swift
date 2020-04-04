@@ -11,7 +11,7 @@ import Moya
 import RxCocoa
 import RxSwift
 
-class RoomDetailViewController: PrimaryViewController {
+class RoomDetailViewController: PrimaryViewController, ControllerType {
     
     typealias ViewModelType = RoomDetailViewModel
     
@@ -36,26 +36,9 @@ class RoomDetailViewController: PrimaryViewController {
     var viewModel: ViewModelType!
     let disposeBag = DisposeBag()
     
-    // MARK:- Register Observable
-    func input(with viewModel: RoomDetailViewModel) {
-        
-        
+    func bindViewModel() {
         
     }
-    
-    func output(with viewModel: RoomDetailViewModel) {
-        
-    }
-    
-    
-    
     
 }
 
-extension RoomDetailViewController {
-    static func create(with viewModel: RoomDetailViewModel) -> UIViewController {
-        let controller = ResourceProvider.getViewController(RoomDetailViewController.self)
-        controller.viewModel = viewModel
-        return controller
-    }
-}

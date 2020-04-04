@@ -20,7 +20,7 @@ protocol RoomMainable {
 }
 
 struct RoomMainProvider: RoomMainable, Restable {
-    var provider = MoyaProvider<RoomMainApi>(plugins: [NetworkLoggerPlugin(verbose: true)])
+    var provider = MoyaProvider<RoomMainApi>(plugins: [])
     
     func getRoomInfo(id: String) -> Driver<RoomInfo> {
         let roomInfo = RoomInfo(userCreatorId: "", userId: "", roomImage: "", roomId: "", createdAt: "", updatedAt: "", roomName: "", localImage: nil)

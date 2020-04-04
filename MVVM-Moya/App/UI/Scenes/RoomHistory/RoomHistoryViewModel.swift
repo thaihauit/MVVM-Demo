@@ -12,12 +12,14 @@ import RxSwift
 import RxCocoa
 
 struct RoomHistoryViewModel {
+    let navigator: RoomHistoryNavigatorType
+    let useCase: RoomHistoryUseCaseType
     
-    let useCase: RoomHistoryUseCase
     let disposeBag = DisposeBag()
     
 }
 
 // MARK: - ViewModelType
 extension RoomHistoryViewModel {
+    
 }

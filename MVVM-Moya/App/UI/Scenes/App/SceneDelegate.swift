@@ -13,8 +13,11 @@ import RxSwift
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    let deviceId = BehaviorSubject<String>(value: "")
-
+    var deviceId = PublishSubject<String>()
+    var currentToken = PublishSubject<String>()
+    var assembler: Assembler = DefaultAssembler()
+    let disposeBag = DisposeBag()
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -23,38 +26,47 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             self.window = UIWindow(windowScene: windowScene)
             binđData()
-            
-            let mainNavigationController = UINavigationController(rootViewController: LoginViewController.create(with: LoginViewModel(navigator: LoginNavigator(), useCase: LoginUseCase())))
-            self.window!.rootViewController = mainNavigationController
             self.window!.makeKeyAndVisible()
         }
     }
     
     func binđData() {
-        let viewModel = AppViewModel(useCase: AppUseCase())
-        let disposeBag = DisposeBag()
-        let currentToken = BehaviorSubject<String>(value: "")
         
-        if !CacheManager.shared.getApiToken().isEmpty {
-            currentToken.onNext(CacheManager.shared.getApiToken())
-        }
+        guard let window = window else { return }
+        
+        let viewModel: AppViewModel = assembler.resolve(window: window)
+        viewModel.navigator.toRoot()
         
         let input = AppViewModel.Input(generateToken: deviceId.asDriverOnErrorJustComplete(), tokenTrigger: currentToken.asDriverOnErrorJustComplete())
         
         
+        
         let output = viewModel.transform(input)
-        //output.hasToken.drive(tokenBinder).disposed(by: disposeBag)\
+        output.hasToken.drive(tokenBinder).disposed(by: disposeBag)
+        output.token.drive(token).disposed(by: disposeBag)
+        
+        if !CacheManager.shared.getApiToken().isEmpty {
+            currentToken.onNext(CacheManager.shared.getApiToken())
+        } else {
+            deviceId.onNext(AppConfig.getUuidDevice())
+        }
         
     }
     
     var tokenBinder: Binder<Bool> {
         return Binder(self) { result, vc in
-            if vc {
+            if !vc {
                 print("Don't has token")
-                self.deviceId.onNext(AppConfig.getUuidDevice())
             } else {
                 print("Had Token")
             }
+        }
+    }
+    
+    var token: Binder<Token> {
+        return Binder(self) { result, vc in
+            
+            print(vc)
         }
     }
 

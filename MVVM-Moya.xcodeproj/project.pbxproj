@@ -69,6 +69,14 @@
 		CCAADB362403C2A000274E86 /* RoomMainNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAADB352403C2A000274E86 /* RoomMainNavigator.swift */; };
 		CCACFE1A241CD4190091D22E /* RoomMainApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCACFE19241CD4190091D22E /* RoomMainApi.swift */; };
 		CCACFE1C241CD4270091D22E /* RoomMainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCACFE1B241CD4270091D22E /* RoomMainProvider.swift */; };
+		CCE8C999243496010030F8F3 /* RoomMainAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C998243496010030F8F3 /* RoomMainAssembler.swift */; };
+		CCE8C99B243496C50030F8F3 /* RoomhistoryNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C99A243496C50030F8F3 /* RoomhistoryNavigator.swift */; };
+		CCE8C99D243496E70030F8F3 /* RoomHistoryAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C99C243496E70030F8F3 /* RoomHistoryAssembler.swift */; };
+		CCE8C99F243497040030F8F3 /* RoomDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C99E243497040030F8F3 /* RoomDetailUseCase.swift */; };
+		CCE8C9A1243497140030F8F3 /* RoomDetailNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9A0243497140030F8F3 /* RoomDetailNavigator.swift */; };
+		CCE8C9A3243497250030F8F3 /* RoomDetailAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9A2243497250030F8F3 /* RoomDetailAssembler.swift */; };
+		CCE8C9A6243499B30030F8F3 /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9A5243499B30030F8F3 /* Assembler.swift */; };
+		CCE8C9A824349D6B0030F8F3 /* AppAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9A724349D6B0030F8F3 /* AppAssembler.swift */; };
 		CCFFFCF2241A8216000D285F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFFFCF1241A8216000D285F /* ActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
@@ -160,6 +168,14 @@
 		CCAADB352403C2A000274E86 /* RoomMainNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomMainNavigator.swift; sourceTree = "<group>"; };
 		CCACFE19241CD4190091D22E /* RoomMainApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomMainApi.swift; sourceTree = "<group>"; };
 		CCACFE1B241CD4270091D22E /* RoomMainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomMainProvider.swift; sourceTree = "<group>"; };
+		CCE8C998243496010030F8F3 /* RoomMainAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomMainAssembler.swift; sourceTree = "<group>"; };
+		CCE8C99A243496C50030F8F3 /* RoomhistoryNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomhistoryNavigator.swift; sourceTree = "<group>"; };
+		CCE8C99C243496E70030F8F3 /* RoomHistoryAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomHistoryAssembler.swift; sourceTree = "<group>"; };
+		CCE8C99E243497040030F8F3 /* RoomDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailUseCase.swift; sourceTree = "<group>"; };
+		CCE8C9A0243497140030F8F3 /* RoomDetailNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailNavigator.swift; sourceTree = "<group>"; };
+		CCE8C9A2243497250030F8F3 /* RoomDetailAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailAssembler.swift; sourceTree = "<group>"; };
+		CCE8C9A5243499B30030F8F3 /* Assembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
+		CCE8C9A724349D6B0030F8F3 /* AppAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembler.swift; sourceTree = "<group>"; };
 		CCFFFCF1241A8216000D285F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		CEBCBA579644F92797224A91 /* Pods-MVVM-Moya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-Moya.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-Moya/Pods-MVVM-Moya.debug.xcconfig"; sourceTree = "<group>"; };
 		D51512EAA853E65CCEAB81BE /* Pods-MVVM-MoyaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-MoyaUITests.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-MoyaUITests/Pods-MVVM-MoyaUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -218,23 +234,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CC23CB83240519260099FF2E /* AppDelegate */ = {
+		CC23CB83240519260099FF2E /* App */ = {
 			isa = PBXGroup;
 			children = (
-				CC8F4DC52396203A009AFBB7 /* AppDelegate.swift */,
 				CC23CB84240519460099FF2E /* AppNavigator.swift */,
 				CC23CB812405190C0099FF2E /* AppUseCase.swift */,
 				CC23CB7F240518F80099FF2E /* AppViewModel.swift */,
 				CC8F4DC72396203A009AFBB7 /* SceneDelegate.swift */,
+				CCE8C9A724349D6B0030F8F3 /* AppAssembler.swift */,
 			);
-			path = AppDelegate;
-			sourceTree = "<group>";
-		};
-		CC6022F423FF95AE0012AD44 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
+			path = App;
 			sourceTree = "<group>";
 		};
 		CC60230923FF977E0012AD44 /* ApiValidation */ = {
@@ -248,6 +257,9 @@
 		CC8CE46623FAC9C400E262AC /* RoomDetail */ = {
 			isa = PBXGroup;
 			children = (
+				CCE8C9A2243497250030F8F3 /* RoomDetailAssembler.swift */,
+				CCE8C9A0243497140030F8F3 /* RoomDetailNavigator.swift */,
+				CCE8C99E243497040030F8F3 /* RoomDetailUseCase.swift */,
 				CC8CE46C23FACA1B00E262AC /* RoomDetailViewController.swift */,
 				CC8CE46E23FACA2A00E262AC /* RoomDetailViewModel.swift */,
 			);
@@ -257,9 +269,11 @@
 		CC8CE46723FAC9CD00E262AC /* RoomHistory */ = {
 			isa = PBXGroup;
 			children = (
+				CCE8C99C243496E70030F8F3 /* RoomHistoryAssembler.swift */,
+				CCE8C99A243496C50030F8F3 /* RoomhistoryNavigator.swift */,
+				CC2BFDBF241E66EE004A8BE1 /* RoomHistoryUseCase.swift */,
 				CC8CE46823FAC9F800E262AC /* RoomHistoryViewController.swift */,
 				CC8CE46A23FACA0900E262AC /* RoomHistoryViewModel.swift */,
-				CC2BFDBF241E66EE004A8BE1 /* RoomHistoryUseCase.swift */,
 			);
 			path = RoomHistory;
 			sourceTree = "<group>";
@@ -318,34 +332,29 @@
 			path = "MVVM-MoyaUITests";
 			sourceTree = "<group>";
 		};
-		CC8F4DF523963EF0009AFBB7 /* Util */ = {
+		CC8F4DF523963EF0009AFBB7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				CC6022F423FF95AE0012AD44 /* Extension */,
+				CCFFFCF1241A8216000D285F /* ActivityIndicator.swift */,
 				CC8F4DFE23963F06009AFBB7 /* AppConfig.swift */,
-				CC8F4DFD23963F06009AFBB7 /* CacheMannager.swift */,
 				CC8F4DF923963F05009AFBB7 /* Const.swift */,
 				CC8F4DF823963F05009AFBB7 /* Define.swift */,
-				CC8F4DFA23963F05009AFBB7 /* Extension.swift */,
 				CC8F4DF623963F05009AFBB7 /* Navigator.swift */,
-				CC8F4DF723963F05009AFBB7 /* ResourceProvider.swift */,
-				CC8F4DFB23963F06009AFBB7 /* ThreadManager.swift */,
-				CC8F4DFC23963F06009AFBB7 /* Typealias.swift */,
 				CC96819B23FEEE90004B2AD2 /* ValdationResult.swift */,
-				CCFFFCF1241A8216000D285F /* ActivityIndicator.swift */,
 			);
-			path = Util;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		CC8F4E0823963F17009AFBB7 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				CC23CB83240519260099FF2E /* AppDelegate */,
 				CC8F4E2623963FE5009AFBB7 /* Api */,
+				CCE8C995243493280030F8F3 /* Extension */,
+				CCE8C9942434931E0030F8F3 /* Manager */,
 				CC8F4E1F23963FCB009AFBB7 /* Model */,
 				CC8F4E1A23963FB1009AFBB7 /* Protocol */,
 				CC8F4E0923963F39009AFBB7 /* UI */,
-				CC8F4DF523963EF0009AFBB7 /* Util */,
+				CC8F4DF523963EF0009AFBB7 /* Utils */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -353,14 +362,9 @@
 		CC8F4E0923963F39009AFBB7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				CC8F4E0A23963F4B009AFBB7 /* BaseViewConntroller.swift */,
-				CC8F4E0B23963F4B009AFBB7 /* PrimaryViewController.swift */,
-				CC8F4E0C23963F4B009AFBB7 /* SecondaryViewController.swift */,
-				CC8CE47023FADD5E00E262AC /* BCUNormalButton.swift */,
-				CC8F4E1023963F50009AFBB7 /* Login */,
-				CC8CE46623FAC9C400E262AC /* RoomDetail */,
-				CC8CE46723FAC9CD00E262AC /* RoomHistory */,
-				CC8F4E1523963F6D009AFBB7 /* RoomMain */,
+				CCE8C9962434934E0030F8F3 /* Dialog */,
+				CCE8C997243493580030F8F3 /* Scenes */,
+				CCE8C993243492920030F8F3 /* View */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -368,11 +372,11 @@
 		CC8F4E1023963F50009AFBB7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				CC96819923FEE408004B2AD2 /* LoginAssembler.swift */,
 				CC96819723FEE3D6004B2AD2 /* LoginNavigator.swift */,
 				CC96819523FEE3C2004B2AD2 /* LoginUseCase.swift */,
 				CC8F4E1223963F64009AFBB7 /* LoginViewController.swift */,
 				CC8F4E1123963F64009AFBB7 /* LoginViewModel.swift */,
-				CC96819923FEE408004B2AD2 /* LoginAssembler.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -380,6 +384,7 @@
 		CC8F4E1523963F6D009AFBB7 /* RoomMain */ = {
 			isa = PBXGroup;
 			children = (
+				CCE8C998243496010030F8F3 /* RoomMainAssembler.swift */,
 				CCAADB352403C2A000274E86 /* RoomMainNavigator.swift */,
 				CCAADB332403C28E00274E86 /* RoomMainUseCase.swift */,
 				CC8F4E1723963F7C009AFBB7 /* RoomMainViewController.swift */,
@@ -401,13 +406,13 @@
 			isa = PBXGroup;
 			children = (
 				CC0792F5241E208600A929C1 /* BaseData.swift */,
+				CC0792F7241E25B700A929C1 /* Participant.swift */,
 				CC8F4E2023963FDA009AFBB7 /* RequestUser.swift */,
 				CC0792F3241E152000A929C1 /* RoomHistories.swift */,
 				CC0792F1241E150F00A929C1 /* RoomHistory.swift */,
 				CC0792EF241E14DA00A929C1 /* RoomInfo.swift */,
 				CC8F4E2223963FDB009AFBB7 /* Token.swift */,
 				CC8F4E2123963FDB009AFBB7 /* User.swift */,
-				CC0792F7241E25B700A929C1 /* Participant.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -460,6 +465,65 @@
 			path = RoomMain;
 			sourceTree = "<group>";
 		};
+		CCE8C992243492660030F8F3 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				CC8F4E0A23963F4B009AFBB7 /* BaseViewConntroller.swift */,
+				CC8F4E0B23963F4B009AFBB7 /* PrimaryViewController.swift */,
+				CC8F4E0C23963F4B009AFBB7 /* SecondaryViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		CCE8C993243492920030F8F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC8CE47023FADD5E00E262AC /* BCUNormalButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CCE8C9942434931E0030F8F3 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CC8F4DFD23963F06009AFBB7 /* CacheMannager.swift */,
+				CC8F4DFB23963F06009AFBB7 /* ThreadManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		CCE8C995243493280030F8F3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CCE8C9A5243499B30030F8F3 /* Assembler.swift */,
+				CC8F4DFC23963F06009AFBB7 /* Typealias.swift */,
+				CC8F4DFA23963F05009AFBB7 /* Extension.swift */,
+				CC8F4DF723963F05009AFBB7 /* ResourceProvider.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		CCE8C9962434934E0030F8F3 /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Dialog;
+			sourceTree = "<group>";
+		};
+		CCE8C997243493580030F8F3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CC8F4DC52396203A009AFBB7 /* AppDelegate.swift */,
+				CCE8C992243492660030F8F3 /* Base */,
+				CC23CB83240519260099FF2E /* App */,
+				CC8F4E1023963F50009AFBB7 /* Login */,
+				CC8CE46623FAC9C400E262AC /* RoomDetail */,
+				CC8CE46723FAC9CD00E262AC /* RoomHistory */,
+				CC8F4E1523963F6D009AFBB7 /* RoomMain */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -471,6 +535,7 @@
 				CC8F4DBE2396203A009AFBB7 /* Sources */,
 				CC8F4DBF2396203A009AFBB7 /* Frameworks */,
 				CC8F4DC02396203A009AFBB7 /* Resources */,
+				62E90E4A9C45E6AFD9EF59CB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -638,6 +703,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		62E90E4A9C45E6AFD9EF59CB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MVVM-Moya/Pods-MVVM-Moya-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MVVM-Moya/Pods-MVVM-Moya-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MVVM-Moya/Pods-MVVM-Moya-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B7C66D586C0E7E34BFE7FCF7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -681,10 +763,14 @@
 				CC60230B23FF97B00012AD44 /* ValidationError.swift in Sources */,
 				CC8F4E0523963F06009AFBB7 /* Typealias.swift in Sources */,
 				CC23CB80240518F80099FF2E /* AppViewModel.swift in Sources */,
+				CCE8C99F243497040030F8F3 /* RoomDetailUseCase.swift in Sources */,
 				CC8F4E0423963F06009AFBB7 /* ThreadManager.swift in Sources */,
+				CCE8C9A824349D6B0030F8F3 /* AppAssembler.swift in Sources */,
 				CC8F4E0123963F06009AFBB7 /* Define.swift in Sources */,
 				CC2BFDC0241E66EE004A8BE1 /* RoomHistoryUseCase.swift in Sources */,
+				CCE8C99B243496C50030F8F3 /* RoomhistoryNavigator.swift in Sources */,
 				CC8F4E0E23963F4B009AFBB7 /* PrimaryViewController.swift in Sources */,
+				CCE8C9A3243497250030F8F3 /* RoomDetailAssembler.swift in Sources */,
 				CC8F4DC82396203A009AFBB7 /* SceneDelegate.swift in Sources */,
 				CCFFFCF2241A8216000D285F /* ActivityIndicator.swift in Sources */,
 				CC8F4E0623963F06009AFBB7 /* CacheMannager.swift in Sources */,
@@ -711,8 +797,12 @@
 				CC8F4E0F23963F4B009AFBB7 /* SecondaryViewController.swift in Sources */,
 				CC8F4E2923964001009AFBB7 /* LoginProvider.swift in Sources */,
 				CC96819A23FEE408004B2AD2 /* LoginAssembler.swift in Sources */,
+				CCE8C99D243496E70030F8F3 /* RoomHistoryAssembler.swift in Sources */,
+				CCE8C9A1243497140030F8F3 /* RoomDetailNavigator.swift in Sources */,
 				CC8F4E1823963F7C009AFBB7 /* RoomMainViewModel.swift in Sources */,
 				CC8CE46923FAC9F800E262AC /* RoomHistoryViewController.swift in Sources */,
+				CCE8C999243496010030F8F3 /* RoomMainAssembler.swift in Sources */,
+				CCE8C9A6243499B30030F8F3 /* Assembler.swift in Sources */,
 				CC8F4E2B2396400F009AFBB7 /* BaseRestApi.swift in Sources */,
 				CC96819C23FEEE90004B2AD2 /* ValdationResult.swift in Sources */,
 				CC0792F8241E25B700A929C1 /* Participant.swift in Sources */,

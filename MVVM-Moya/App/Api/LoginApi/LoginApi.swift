@@ -1,6 +1,5 @@
 //
 //  LoginApi.swift
-//  VIPER
 //
 //  Created by Ha Nguyen Thai on 9/25/19.
 //  Copyright © 2019 Ace. All rights reserved.

@@ -11,7 +11,8 @@ import RxSwift
 import RxCocoa
 
 open class ActivityIndicator: SharedSequenceConvertibleType {
-    public typealias E = Bool
+    
+    public typealias Element = Bool
     public typealias SharingStrategy = DriverSharingStrategy
     
     private let _lock = NSRecursiveLock()
@@ -23,7 +24,7 @@ open class ActivityIndicator: SharedSequenceConvertibleType {
             .distinctUntilChanged()
     }
     
-    fileprivate func trackActivityOfObservable<O: ObservableConvertibleType>(_ source: O) -> Observable<O.E> {
+    fileprivate func trackActivityOfObservable<O: ObservableConvertibleType>(_ source: O) -> Observable<O.Element> {
         return source.asObservable()
             .do(onNext: { _ in
                 self.sendStopLoading()
@@ -46,14 +47,14 @@ open class ActivityIndicator: SharedSequenceConvertibleType {
         _lock.unlock()
     }
     
-    open func asSharedSequence() -> SharedSequence<SharingStrategy, E> {
+    open func asSharedSequence() -> SharedSequence<SharingStrategy, Element> {
         return _loading
     }
     
 }
 
 extension ObservableConvertibleType {
-    public func trackActivity(_ activityIndicator: ActivityIndicator) -> Observable<E> {
+    public func trackActivity(_ activityIndicator: ActivityIndicator) -> Observable<Element> {
         return activityIndicator.trackActivityOfObservable(self)
     }
 }

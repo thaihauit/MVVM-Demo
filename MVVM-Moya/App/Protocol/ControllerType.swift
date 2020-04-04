@@ -8,20 +8,18 @@
 
 import UIKit
 
-protocol ControllerType: class {
-    
+public protocol ControllerType: class {
     associatedtype ViewModelType
     
     var viewModel: ViewModelType! { get set }
     
-    /// Configurates controller with specified ViewModelProtocol subclass
-    ///
-    /// - Parameter viewModel: CPViewModel subclass instance to configure with
     func bindViewModel()
-    
-    /// Factory function for view controller instatiation
-    ///
-    /// - Parameter viewModel: View model object
-    /// - Returns: View controller of concrete type
-    static func create(with viewModel: ViewModelType) -> UIViewController
+}
+
+extension ControllerType where Self: UIViewController {
+    public func bindViewModel(to model: Self.ViewModelType) {
+        viewModel = model
+        loadViewIfNeeded()
+        bindViewModel()
+    }
 }

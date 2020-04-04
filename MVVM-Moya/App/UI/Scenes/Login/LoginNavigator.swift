@@ -7,18 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 protocol LoginNavigatorType {
-    func navigateToRoomHistoryScreen()
-    func navigateToRoomMainScreen()
+    
 }
 
 struct LoginNavigator: LoginNavigatorType {
-    func navigateToRoomHistoryScreen() {
-        
-    }
+    unowned let assembler: Assembler
+    unowned let navigationController: UINavigationController
     
-    func navigateToRoomMainScreen() {
-        
-    }
 }

@@ -11,7 +11,9 @@ import Moya
 import RxCocoa
 import RxSwift
 
-class RoomHistoryViewController: PrimaryViewController {
+class RoomHistoryViewController: SecondaryViewController, ControllerType {
+    
+    
     
     typealias ViewModelType = RoomHistoryViewModel
     
@@ -42,29 +44,9 @@ class RoomHistoryViewController: PrimaryViewController {
     let disposeBag = DisposeBag()
     
     
-    
-    
-    
-    
-    
-    func input(with viewModel: RoomHistoryViewModel) {
-        
-    }
-    
-    func output(with viewModel: RoomHistoryViewModel) {
+    func bindViewModel() {
         
     }
     
     
-    
-    
-    
-}
-
-extension RoomHistoryViewController {
-    static func create(with viewModel: RoomHistoryViewModel) -> UIViewController {
-        let controller = ResourceProvider.getViewController(RoomHistoryViewController.self)
-        controller.viewModel = viewModel
-        return controller
-    }
 }
