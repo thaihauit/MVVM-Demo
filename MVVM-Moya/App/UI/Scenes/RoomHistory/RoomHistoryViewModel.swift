@@ -14,7 +14,6 @@ import RxCocoa
 struct RoomHistoryViewModel {
     let navigator: RoomHistoryNavigatorType
     let useCase: RoomHistoryUseCaseType
-    
     let disposeBag = DisposeBag()
     
 }

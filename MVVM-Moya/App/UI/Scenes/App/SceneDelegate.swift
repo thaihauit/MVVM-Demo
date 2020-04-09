@@ -33,13 +33,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func binđData() {
         
         guard let window = window else { return }
-        
         let viewModel: AppViewModel = assembler.resolve(window: window)
         viewModel.navigator.toRoot()
         
         let input = AppViewModel.Input(generateToken: deviceId.asDriverOnErrorJustComplete(), tokenTrigger: currentToken.asDriverOnErrorJustComplete())
-        
-        
         
         let output = viewModel.transform(input)
         output.hasToken.drive(tokenBinder).disposed(by: disposeBag)

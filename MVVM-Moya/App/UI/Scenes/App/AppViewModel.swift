@@ -36,7 +36,6 @@ extension AppViewModel: ViewModelType {
     func transform(_ input: Input) -> Output {
         
         let isValidToken = useCase.isTokenValid(object: input.tokenTrigger)
-        let isValidDeviceId = useCase.isTokenValid(object: input.generateToken)
         
         let token = input.generateToken
             .flatMap({ (deviceId) -> Driver<Token> in
@@ -46,8 +45,6 @@ extension AppViewModel: ViewModelType {
                     CacheManager.shared.saveApiToken(value: token.token)
                 }
             })
-        
-        
         
         return Output(hasToken: isValidToken, token: token)
     }

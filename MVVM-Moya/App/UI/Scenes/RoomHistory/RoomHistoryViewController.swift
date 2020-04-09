@@ -43,6 +43,10 @@ class RoomHistoryViewController: SecondaryViewController, ControllerType {
     var viewModel: ViewModelType!
     let disposeBag = DisposeBag()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
     
     func bindViewModel() {
         

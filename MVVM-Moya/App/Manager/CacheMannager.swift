@@ -40,7 +40,6 @@ class CacheManager: NSObject {
         userDefaults.removeObject(forKey: apiToken)
     }
     
-    
     func getUserName() -> String {
         return userDefaults.string(forKey: userName) ?? ""
     }

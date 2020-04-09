@@ -11,7 +11,7 @@ import Moya
 import RxCocoa
 import RxSwift
 
-class RoomDetailViewController: PrimaryViewController, ControllerType {
+class RoomDetailViewController: SecondaryViewController, ControllerType {
     
     typealias ViewModelType = RoomDetailViewModel
     
@@ -35,6 +35,11 @@ class RoomDetailViewController: PrimaryViewController, ControllerType {
     // MARK: - Properties
     var viewModel: ViewModelType!
     let disposeBag = DisposeBag()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
     
     func bindViewModel() {
         

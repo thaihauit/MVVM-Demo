@@ -20,12 +20,12 @@ struct LoginProvider: Loginable, Restable {
     var provider = MoyaProvider<LoginApi>(plugins: [])
     
     func createToken(id : String) -> Driver<Token> {
-        let token = Token(token: "aaa", expires_at: "ssss")
+        let token = Token(token: "", expires_at: "")
         return provider.rx.request(LoginApi.createToken(id: "12345678")).debug().map(Token.self).asDriver(onErrorJustReturn: token)
     }
     
     func registerUser(name: String, token: String) -> Driver<User> {
-        let user = User(user_id: "ko co", user_name: "ko co")
+        let user = User(user_id: "", user_name: "")
         return provider.rx.request(LoginApi.registerUser(name: name, token: token)).debug().map(User.self).asDriver(onErrorJustReturn: user)
     }
 

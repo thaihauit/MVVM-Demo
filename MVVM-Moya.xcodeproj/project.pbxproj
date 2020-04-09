@@ -19,7 +19,6 @@
 		CC23CB822405190C0099FF2E /* AppUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23CB812405190C0099FF2E /* AppUseCase.swift */; };
 		CC23CB85240519460099FF2E /* AppNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23CB84240519460099FF2E /* AppNavigator.swift */; };
 		CC2BFDC0241E66EE004A8BE1 /* RoomHistoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2BFDBF241E66EE004A8BE1 /* RoomHistoryUseCase.swift */; };
-		CC60230B23FF97B00012AD44 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC60230A23FF97B00012AD44 /* ValidationError.swift */; };
 		CC8CE46323FAC94100E262AC /* RoomDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8CE46223FAC94100E262AC /* RoomDetailViewController.xib */; };
 		CC8CE46523FAC97600E262AC /* RoomHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8CE46423FAC97600E262AC /* RoomHistoryViewController.xib */; };
 		CC8CE46923FAC9F800E262AC /* RoomHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8CE46823FAC9F800E262AC /* RoomHistoryViewController.swift */; };
@@ -112,7 +111,6 @@
 		CC23CB812405190C0099FF2E /* AppUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUseCase.swift; sourceTree = "<group>"; };
 		CC23CB84240519460099FF2E /* AppNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigator.swift; sourceTree = "<group>"; };
 		CC2BFDBF241E66EE004A8BE1 /* RoomHistoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomHistoryUseCase.swift; sourceTree = "<group>"; };
-		CC60230A23FF97B00012AD44 /* ValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		CC8CE46223FAC94100E262AC /* RoomDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomDetailViewController.xib; sourceTree = "<group>"; };
 		CC8CE46423FAC97600E262AC /* RoomHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomHistoryViewController.xib; sourceTree = "<group>"; };
 		CC8CE46823FAC9F800E262AC /* RoomHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomHistoryViewController.swift; sourceTree = "<group>"; };
@@ -246,12 +244,11 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		CC60230923FF977E0012AD44 /* ApiValidation */ = {
+		CC390417243C746300F6B445 /* RoomHistory */ = {
 			isa = PBXGroup;
 			children = (
-				CC60230A23FF97B00012AD44 /* ValidationError.swift */,
 			);
-			path = ApiValidation;
+			path = RoomHistory;
 			sourceTree = "<group>";
 		};
 		CC8CE46623FAC9C400E262AC /* RoomDetail */ = {
@@ -421,20 +418,20 @@
 			isa = PBXGroup;
 			children = (
 				CC8F4E2A2396400F009AFBB7 /* BaseRestApi.swift */,
-				CC60230923FF977E0012AD44 /* ApiValidation */,
-				CC8F4E2723963FF4009AFBB7 /* LoginApi */,
+				CC8F4E2723963FF4009AFBB7 /* Login */,
 				CCACFE18241CD3F90091D22E /* RoomMain */,
+				CC390417243C746300F6B445 /* RoomHistory */,
 			);
 			path = Api;
 			sourceTree = "<group>";
 		};
-		CC8F4E2723963FF4009AFBB7 /* LoginApi */ = {
+		CC8F4E2723963FF4009AFBB7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				CC8F4E2C23964016009AFBB7 /* LoginApi.swift */,
 				CC8F4E2823964001009AFBB7 /* LoginProvider.swift */,
 			);
-			path = LoginApi;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		CC8F4E2E2396404C009AFBB7 /* Resource */ = {
@@ -760,7 +757,6 @@
 				CCAADB362403C2A000274E86 /* RoomMainNavigator.swift in Sources */,
 				CC8CE46B23FACA0900E262AC /* RoomHistoryViewModel.swift in Sources */,
 				CC23CB822405190C0099FF2E /* AppUseCase.swift in Sources */,
-				CC60230B23FF97B00012AD44 /* ValidationError.swift in Sources */,
 				CC8F4E0523963F06009AFBB7 /* Typealias.swift in Sources */,
 				CC23CB80240518F80099FF2E /* AppViewModel.swift in Sources */,
 				CCE8C99F243497040030F8F3 /* RoomDetailUseCase.swift in Sources */,

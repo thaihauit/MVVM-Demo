@@ -45,21 +45,21 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xhV-PS-lON" userLabel="Bottom Buttons">
                     <rect key="frame" x="0.0" y="758" width="414" height="96"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2t-9d-J9L" customClass="BCUNormalButton" customModule="BcomU" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2t-9d-J9L" customClass="BCUNormalButton" customModule="MVVM_Moya" customModuleProvider="target">
                             <rect key="frame" x="22" y="0.0" width="96" height="96"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="w2t-9d-J9L" secondAttribute="height" multiplier="1:1" id="5PV-oC-857"/>
                             </constraints>
                             <state key="normal" image="ic-back"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsa-yi-zN7" customClass="BCUNormalButton" customModule="BcomU" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsa-yi-zN7" customClass="BCUNormalButton" customModule="MVVM_Moya" customModuleProvider="target">
                             <rect key="frame" x="159" y="0.0" width="96" height="96"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="bsa-yi-zN7" secondAttribute="height" multiplier="1:1" id="s4e-DG-aus"/>
                             </constraints>
                             <state key="normal" image="ic-back"/>
                         </button>
-                        <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbG-SF-VVL" customClass="BCUNormalButton" customModule="BcomU" customModuleProvider="target">
+                        <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbG-SF-VVL" customClass="BCUNormalButton" customModule="MVVM_Moya" customModuleProvider="target">
                             <rect key="frame" x="296" y="0.0" width="96" height="96"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="tbG-SF-VVL" secondAttribute="height" multiplier="1:1" id="fcm-AD-eov"/>
@@ -295,7 +295,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kiF-jh-rAV">
                                     <rect key="frame" x="18" y="48.5" width="378" height="61.5"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xon-cw-LDB" customClass="BCUNormalButton" customModule="BcomU" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xon-cw-LDB" customClass="BCUNormalButton" customModule="MVVM_Moya" customModuleProvider="target">
                                             <rect key="frame" x="314" y="10" width="41" height="41.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="xon-cw-LDB" secondAttribute="height" multiplier="1:1" id="cgz-a5-4th"/>

@@ -34,7 +34,7 @@ extension ViewModelType {
         return Driver.combineLatest(object, trigger)
             .map { $0.0 }
             .map { validator($0) }
-            .startWith(true)
+            .startWith(false)
     }
     
     func loadingValidate<T>(object: Driver<T>,

@@ -16,7 +16,9 @@ class LoginViewController: SecondaryViewController, ControllerType {
     // MARK: - Properties
     var viewModel: LoginViewModel!
     let disposeBag = DisposeBag()
-    private let roomId = BehaviorSubject<String>(value: "")
+    
+    var roomId = PublishSubject<String>()
+    var currentUser = PublishSubject<String>()
     
     // MARK: - UI
     @IBOutlet weak var userId: UITextField!
@@ -25,25 +27,42 @@ class LoginViewController: SecondaryViewController, ControllerType {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     func bindViewModel() {
+        let input = LoginViewModel.Input(currentUserNameTrigger: currentUser.asDriverOnErrorJustComplete(),
+                                         userName: userId.rx.text.orEmpty.asDriver(),
+                                         LoginTrigger: signInButton.rx.tap.asDriver(),
+                                         roomInfoTrigger: roomId.asDriverOnErrorJustComplete())
         
-        let input = LoginViewModel.Input(currentlUser: Driver.just(CacheManager.shared.getUserName()),
-                                         userName:userId.rx.text.orEmpty.asDriver(),
-                                         loginDidTap: signInButton.rx.tap.asDriver(),
-                                         roomInfoTrigger: roomId.asDriver(onErrorJustReturn: ""))
-
         let output = viewModel.transform(input)
-        output.isLoginEnable.drive(isCheckRoomId).disposed(by: disposeBag)
         output.isLoading.drive(loadingBinder).disposed(by: disposeBag)
-        output.login.drive(login).disposed(by: disposeBag)
-        output.goRoomMainScreen.drive(isOpenRoomMain).disposed(by: disposeBag)
-        output.id.drive().disposed(by: disposeBag)
+        output.userName.drive(userNameBinder).disposed(by: disposeBag)
+        output.userNameValidation.drive(userNameValidationBinder).disposed(by: disposeBag)
+        output.login.drive(loginBinder).disposed(by: disposeBag)
+        output.roomInfo.drive(RoomInforBinder).disposed(by: disposeBag)
+        
+        self.checkCurrentUser()
     }
     
+    func checkCurrentUser() {
+        let user = CacheManager.shared.getUserName()
+        if !user.isEmpty {
+            self.currentUser.onNext(user)
+        }
+    }
     
+    func checkRoomInfo() {
+        let id = CacheManager.shared.getCurrentRoomId()
+        if !id.isEmpty {
+            self.roomId.onNext(id)
+        }
+    }
     
 }
 
@@ -57,55 +76,47 @@ extension LoginViewController {
     var loadingBinder: Binder<Bool> {
         return Binder(self) { result, vc in
             if vc {
-                print("Loading")
+                print("Display Loading")
             } else {
-                print("Not Loading")
+                print("Dissmiss Loading")
             }
         }
     }
     
-    var userValidation: Binder<Bool> {
+    var userNameValidationBinder: Binder<Bool> {
         return Binder(self) { result, vc in
             if vc {
                 print("ok")
             } else {
-                print("Not ")
+                print("the user name is invalid ")
             }
         }
     }
     
-    var login: Binder<User> {
+    var userNameBinder: Binder<Bool> {
+        return Binder(self) { result, vc in
+            if vc {
+                self.checkRoomInfo()
+            } else {
+                
+            }
+        }
+    }
+    
+    var loginBinder: Binder<User> {
         return Binder(self) { result, vc in
             if !vc.user_name.isEmpty {
-                self.navigateToHistoryScreen()
+                CacheManager.shared.saveUserName(value: vc.user_name)
             }
         }
     }
     
-    
-    
-    var isCheckRoomId: Binder<Bool> {
+    var RoomInforBinder: Binder<RoomInfo> {
         return Binder(self) { result, vc in
-            if vc {
-                self.roomId.onNext(CacheManager.shared.getCurrentRoomId())
+            if !vc.roomId.isEmpty {
+                CacheManager.shared.saveCurrentRoomId(value: vc.roomId)
             }
         }
-    }
-    
-    var isOpenRoomMain: Binder<Bool> {
-        return Binder(self) { result, vc in
-            if vc {
-                self.navigateToRoomMainScreen()
-            }
-        }
-    }
-    
-    func navigateToRoomMainScreen() {
-        
-    }
-    
-    func navigateToHistoryScreen() {
-        
     }
     
 }
